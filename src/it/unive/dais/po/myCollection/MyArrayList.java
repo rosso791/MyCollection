@@ -1,9 +1,14 @@
 package it.unive.dais.po.myCollection;
 
-public class MyArrayList<E> implements MyList<E> {
+
+public class MyArrayList<E> implements MyList<E>{
 
     private MyNode<E> head;
     int size;
+
+    /*
+     * COSTRUTTORI
+     */
 
     public MyArrayList(){
         head = null;
@@ -11,21 +16,10 @@ public class MyArrayList<E> implements MyList<E> {
     }
 
 
-    @Override
-    public void add(E element){
-        MyNode<E> nuovo = new MyNode<>(element,null);
-        if (head == null){
-            head = nuovo;
-        }
-        else{
-            MyNode<E> h = head;
-            while(h.getNext() != null){
-                h = h.getNext();
-            }
-            h.setNext(nuovo);
-        }
-        size++;
-    }
+    /*
+     *IMPLEMENTAZIONE METODI MYLIST
+     */
+
 
     @Override
     public void add(int position, E element) throws NotFoundException {
@@ -46,17 +40,7 @@ public class MyArrayList<E> implements MyList<E> {
         size++;
     }
 
-    @Override
-    public boolean contains(Object o) {
-        MyNode<E> app = head;
-        while(app.getNext() != null){
-            if(o.equals(app.getInfo())== true){
-                return true;
-            }
-            app = app.getNext();
-        }
-        return false;
-    }
+
 
     @Override
     public E get(int position) throws NotFoundException {
@@ -87,11 +71,7 @@ public class MyArrayList<E> implements MyList<E> {
         return -1;
     }
 
-    @Override
-    public boolean isEmpty() {
-        if (size() == 0) return  true;
-        else return false;
-    }
+
 
     @Override
     public void remove(int position) throws NotFoundException {
@@ -133,11 +113,108 @@ public class MyArrayList<E> implements MyList<E> {
         return ret;
     }
 
+
+
+    /*
+     *IMPLEMENTAZIONE METODI MYCOLLECTION
+     */
+
+
+    @Override
+    public void add(E element){
+        MyNode<E> nuovo = new MyNode<>(element,null);
+        if (head == null){
+            head = nuovo;
+        }
+        else{
+            MyNode<E> h = head;
+            while(h.getNext() != null){
+                h = h.getNext();
+            }
+            h.setNext(nuovo);
+        }
+        size++;
+    }
+
+    @Override
+    public void clear() {
+        head = null;
+        size = 0;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        MyNode<E> app = head;
+        while(app.getNext() != null){
+            if(o.equals(app.getInfo())== true){
+                return true;
+            }
+            app = app.getNext();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        if (size() == 0) return  true;
+        else return false;
+    }
+
+    @Override
+    public void remove(Object o) throws NotFoundException {
+        MyNode<E> app = head;
+        for(int i= 0; i<size(); i++){
+            if (app.getInfo().equals(o)){
+                remove(i);
+            }
+            app= app.getNext();
+        }
+    }
+
     @Override
     public int size(){
         return size;
     }
 
+    @Override
+    public Object[] toArray() {
+        Object[] res = new Object[size()];
+        MyNode<E> app = head;
+        for (int i = 0;i<size(); i++){
+            res[i] = app.getInfo();
+            app = app.getNext();
+        }
+        return res;
+    }
+
+    /*
+     *IMPLEMENTAZIONE METODI MYITERABLE
+     */
+    public MyIterator<E> iterator(){
+        return new MyIterator<E>(){
+            private int pos = 0;
+
+            @Override
+            public boolean hasNext() {
+                if(pos < MyArrayList.this.size()){
+                    return true;
+                }
+                else
+                    return false;
+            }
+
+            @Override
+            public E next() {
+                try{
+
+                    return get(pos++);
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                    throw new RuntimeException("iterator.next() failed");
+                }
+            }
 
 
+        };
+    }
 }

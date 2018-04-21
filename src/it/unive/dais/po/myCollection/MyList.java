@@ -1,12 +1,7 @@
 package it.unive.dais.po.myCollection;
 
-public interface MyList<E> {
+public interface MyList<E> extends MyCollection<E>{
 
-    /**
-     * Aggiunge un elemento alla fine della lista
-     * @param elem
-     */
-    void add (E elem);
 
     /**
      * Aggiunge l'elemento elem in posizione pos
@@ -14,14 +9,6 @@ public interface MyList<E> {
      * @param elem
      */
     void add (int position, E elem) throws NotFoundException;
-
-    /**
-     * Controlla se l'oggetto è contenuto all'interno della lista
-     * @param o paramentro da controllare
-     * @return true se l'oggetto è contenuto false altrimenti
-     */
-    boolean contains(Object o);
-
 
     /**
      * Ritorna l'elemento in posizione pos
@@ -37,11 +24,6 @@ public interface MyList<E> {
      */
     int indexOf(Object o);
 
-    /**
-     * Controlla se la lista è vuota o meno
-     * @return true se la lista è vuota false se ha almeno un elemento
-     */
-    boolean isEmpty();
 
     /**
      * Rimuove l'elemento in posizione pos
@@ -58,11 +40,6 @@ public interface MyList<E> {
      */
     E set(int position, E element) throws NotFoundException;
 
-    /**
-     * Ritorna la lunghezza della lista
-     * @return un intero corrispondente alla lunghezza della lista
-     */
-    int size();
 
 
 }
