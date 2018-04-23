@@ -4,19 +4,18 @@ package it.unive.dais.po.myCollection;
 public class Main {
 
     public static void main(String[] args) throws NotFoundException {
-        MyLinkedList<Double> prova = new MyLinkedList<>();
-        prova.clear();
+        MyQueue<Integer> prova = new MyLinkedList<>();
+
         for(int i = 0; i<10;i++){
-            prova.add(i,i+0.1);
+            prova.offer(i);
         }
-        for(int i = 0; i<prova.size();i++){
-            System.out.print(prova.get(i)+ " ");
+
+        while(prova.size()>0){
+            System.out.println(prova.poll() +" " + prova.size());
         }
-        System.out.println();
-        prova.remove(0.1);
-        for(int i = 0; i<prova.size();i++){
-            System.out.print(prova.get(i)+ " ");
-        }
+
+
+
 
     }
 

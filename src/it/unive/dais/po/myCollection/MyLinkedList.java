@@ -207,8 +207,9 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
         }
         else{
             E res = head.getInfo();
-            head= head.getNext();
+            head = head.getNext();
             head.setPrev(null);
+            size--;
             return res;
         }
     }
@@ -220,8 +221,8 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
         }
         else{
             E res = head.getInfo();
-            head= head.getNext();
-            head.setPrev(null);
+            head = head.getNext();
+            size--;
             return res;
         }
     }
