@@ -5,8 +5,9 @@ public interface MyCollection<E> extends MyIterable<E>  {
     /**
      * Aggiunge l'elemento alla collezione
      * @param elem elemento da aggiungere alla collezione
+     * @return true se inserimento andato a buon fine
      */
-    void add(E elem);
+    boolean add(E elem);
 
     /**
      * Elimina tutti gli elementi dalla collezione
@@ -29,9 +30,10 @@ public interface MyCollection<E> extends MyIterable<E>  {
     /**
      * Rimuove dalla collezione l'elemento o.
      * @param o elemento da rimuovere
+     * @return true se l'elemento è stato tolto, false se l'elemento non esiste
      * @throws NotFoundException
      */
-    void remove(Object o) throws NotFoundException;
+    boolean remove(Object o);
 
 
     /**

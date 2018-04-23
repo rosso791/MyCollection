@@ -80,6 +80,7 @@ public class MyArrayList<E> implements MyList<E>{
         }
         if (position == 0){
             head = head.getNext();
+
         }
         else{
             MyNode<E> n = head;
@@ -121,7 +122,8 @@ public class MyArrayList<E> implements MyList<E>{
 
 
     @Override
-    public void add(E element){
+    public boolean add(E element){
+        boolean add = false;
         MyNode<E> nuovo = new MyNode<>(element,null);
         if (head == null){
             head = nuovo;
@@ -132,8 +134,10 @@ public class MyArrayList<E> implements MyList<E>{
                 h = h.getNext();
             }
             h.setNext(nuovo);
+            add = true;
         }
         size++;
+        return add;
     }
 
     @Override
@@ -161,14 +165,16 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
     @Override
-    public void remove(Object o) throws NotFoundException {
+    public boolean remove(Object o) {
         MyNode<E> app = head;
         for(int i= 0; i<size(); i++){
             if (app.getInfo().equals(o)){
-                remove(i);
+                app.setNext(app.getNext().getNext());
+                return true;
             }
             app= app.getNext();
         }
+        return false;
     }
 
     @Override
