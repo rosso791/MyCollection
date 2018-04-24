@@ -4,15 +4,15 @@ package it.unive.dais.po.myCollection;
 public class Main {
 
     public static void main(String[] args) throws NotFoundException {
-        MyQueue<Integer> prova = new MyLinkedList<>();
-
-        for(int i = 0; i<10;i++){
-            prova.offer(i);
+        MyArrayList<Integer> list = new MyArrayList<>();
+        for (int i = 0;i <10;i++){
+            list.add(i,i);
         }
+        print(list);
+        list.removeRange(3,6);
+        print(list);
 
-        while(prova.size()>0){
-            System.out.println(prova.poll() +" " + prova.size());
-        }
+
 
 
 

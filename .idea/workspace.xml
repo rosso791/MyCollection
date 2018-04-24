@@ -15,8 +15,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -24,7 +24,7 @@
       <file leaf-file-name="MyNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="459">
               <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
               <folding>
                 <element signature="e#583#584#0" expanded="true" />
@@ -37,7 +37,7 @@
       <file leaf-file-name="MyDLNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyDLNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="272">
               <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding>
                 <element signature="e#329#330#0" expanded="true" />
@@ -51,19 +51,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="187">
+              <caret line="312" column="34" selection-start-line="312" selection-start-column="34" selection-end-line="312" selection-end-column="34" />
               <folding>
-                <element signature="method#get#0;class#MyArrayList#0" />
+                <element signature="method#add#0;class#MyArrayList#0" />
                 <element signature="method#indexOf#0;class#MyArrayList#0" />
+                <element signature="method#remove#0;class#MyArrayList#0" />
                 <element signature="method#set#0;class#MyArrayList#0" />
-                <element signature="method#add#1;class#MyArrayList#0" />
+                <element signature="method#subList#0;class#MyArrayList#0" />
                 <element signature="method#clear#0;class#MyArrayList#0" />
                 <element signature="method#contains#0;class#MyArrayList#0" />
                 <element signature="method#isEmpty#0;class#MyArrayList#0" />
+                <element signature="e#5455#5456#0" expanded="true" />
+                <element signature="e#5482#5483#0" expanded="true" />
                 <element signature="method#toArray#0;class#MyArrayList#0" />
                 <element signature="method#iterator#0;class#MyArrayList#0" />
               </folding>
@@ -71,25 +74,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyLinkedList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyLinkedList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyLinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="226" column="23" selection-start-line="226" selection-start-column="23" selection-end-line="226" selection-end-column="23" />
+            <state relative-caret-position="73">
+              <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="20" />
               <folding>
                 <element signature="method#MyLinkedList#0;class#MyLinkedList#0" />
                 <element signature="method#add#0;class#MyLinkedList#0" />
                 <element signature="method#clear#0;class#MyLinkedList#0" />
                 <element signature="method#contains#0;class#MyLinkedList#0" />
                 <element signature="method#isEmpty#0;class#MyLinkedList#0" />
+                <element signature="method#remove#0;class#MyLinkedList#0" />
                 <element signature="method#toArray#0;class#MyLinkedList#0" />
                 <element signature="method#add#1;class#MyLinkedList#0" />
                 <element signature="method#get#0;class#MyLinkedList#0" />
                 <element signature="method#remove#1;class#MyLinkedList#0" />
-                <element signature="e#5211#5212#0" expanded="true" />
-                <element signature="e#5235#5236#0" expanded="true" />
-                <element signature="e#4897#4898#0" expanded="true" />
-                <element signature="e#4924#4925#0" expanded="true" />
+                <element signature="e#5365#5366#0" expanded="true" />
+                <element signature="e#5392#5393#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,8 +100,8 @@
       <file leaf-file-name="MyList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="272">
+              <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -107,7 +109,7 @@
       <file leaf-file-name="MyQueue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
+            <state relative-caret-position="527">
               <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
             </state>
           </provider>
@@ -116,17 +118,8 @@
       <file leaf-file-name="MyCollection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyIterable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="-136">
+              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -136,6 +129,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyIterable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -159,15 +161,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/NotFoundException.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyNode.java" />
-        <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyList.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterator.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterable.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyQueue.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyDLNode.java" />
-        <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyArrayList.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyCollection.java" />
-        <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/Main.java" />
+        <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyList.java" />
         <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/Main.java" />
+        <option value="$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyArrayList.java" />
       </list>
     </option>
   </component>
@@ -291,18 +293,18 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24597365" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.3990461" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.50397456" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -313,78 +315,86 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>144</line>
+          <line>209</line>
           <properties />
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>186</line>
+          <line>251</line>
           <properties />
           <option name="timeStamp" value="237" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>218</line>
+          <line>6</line>
           <properties />
-          <option name="timeStamp" value="247" />
+          <option name="timeStamp" value="259" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>219</line>
+          <line>308</line>
           <properties />
-          <option name="timeStamp" value="248" />
+          <option name="timeStamp" value="288" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>220</line>
+          <line>309</line>
           <properties />
-          <option name="timeStamp" value="249" />
+          <option name="timeStamp" value="289" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>221</line>
+          <line>310</line>
           <properties />
-          <option name="timeStamp" value="250" />
+          <option name="timeStamp" value="290" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>223</line>
+          <line>311</line>
           <properties />
-          <option name="timeStamp" value="251" />
+          <option name="timeStamp" value="291" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>224</line>
+          <line>312</line>
           <properties />
-          <option name="timeStamp" value="252" />
+          <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>227</line>
+          <line>315</line>
           <properties />
-          <option name="timeStamp" value="254" />
+          <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>228</line>
+          <line>313</line>
           <properties />
-          <option name="timeStamp" value="255" />
+          <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>229</line>
+          <line>316</line>
           <properties />
-          <option name="timeStamp" value="256" />
+          <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url />
-          <line>225</line>
+          <line>317</line>
           <properties />
-          <option name="timeStamp" value="257" />
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url />
+          <line>307</line>
+          <properties class="it.unive.dais.po.myCollection.MyArrayList" method="removeRange">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="286" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="258" />
+      <option name="time" value="298" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -409,13 +419,16 @@
         <state relative-caret-position="714">
           <caret line="160" lean-forward="true" selection-start-line="160" selection-end-line="160" />
           <folding>
-            <element signature="method#get#0;class#MyArrayList#0" />
+            <element signature="method#add#0;class#MyArrayList#0" />
             <element signature="method#indexOf#0;class#MyArrayList#0" />
+            <element signature="method#remove#0;class#MyArrayList#0" />
             <element signature="method#set#0;class#MyArrayList#0" />
-            <element signature="method#add#1;class#MyArrayList#0" />
+            <element signature="method#subList#0;class#MyArrayList#0" />
             <element signature="method#clear#0;class#MyArrayList#0" />
             <element signature="method#contains#0;class#MyArrayList#0" />
             <element signature="method#isEmpty#0;class#MyArrayList#0" />
+            <element signature="e#5455#5456#0" expanded="true" />
+            <element signature="e#5482#5483#0" expanded="true" />
             <element signature="method#toArray#0;class#MyArrayList#0" />
             <element signature="method#iterator#0;class#MyArrayList#0" />
           </folding>
@@ -499,13 +512,16 @@
         <state relative-caret-position="629">
           <caret line="140" selection-start-line="140" selection-end-line="140" />
           <folding>
-            <element signature="method#get#0;class#MyArrayList#0" />
+            <element signature="method#add#0;class#MyArrayList#0" />
             <element signature="method#indexOf#0;class#MyArrayList#0" />
+            <element signature="method#remove#0;class#MyArrayList#0" />
             <element signature="method#set#0;class#MyArrayList#0" />
-            <element signature="method#add#1;class#MyArrayList#0" />
+            <element signature="method#subList#0;class#MyArrayList#0" />
             <element signature="method#clear#0;class#MyArrayList#0" />
             <element signature="method#contains#0;class#MyArrayList#0" />
             <element signature="method#isEmpty#0;class#MyArrayList#0" />
+            <element signature="e#5455#5456#0" expanded="true" />
+            <element signature="e#5482#5483#0" expanded="true" />
             <element signature="method#toArray#0;class#MyArrayList#0" />
             <element signature="method#iterator#0;class#MyArrayList#0" />
           </folding>
@@ -553,23 +569,19 @@
         <state relative-caret-position="629">
           <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
           <folding>
-            <element signature="method#get#0;class#MyArrayList#0" />
+            <element signature="method#add#0;class#MyArrayList#0" />
             <element signature="method#indexOf#0;class#MyArrayList#0" />
+            <element signature="method#remove#0;class#MyArrayList#0" />
             <element signature="method#set#0;class#MyArrayList#0" />
-            <element signature="method#add#1;class#MyArrayList#0" />
+            <element signature="method#subList#0;class#MyArrayList#0" />
             <element signature="method#clear#0;class#MyArrayList#0" />
             <element signature="method#contains#0;class#MyArrayList#0" />
             <element signature="method#isEmpty#0;class#MyArrayList#0" />
+            <element signature="e#5455#5456#0" expanded="true" />
+            <element signature="e#5482#5483#0" expanded="true" />
             <element signature="method#toArray#0;class#MyArrayList#0" />
             <element signature="method#iterator#0;class#MyArrayList#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -584,6 +596,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyIterable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -591,30 +610,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        <state relative-caret-position="-136">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="20" />
+          <folding>
+            <element signature="method#MyLinkedList#0;class#MyLinkedList#0" />
+            <element signature="method#add#0;class#MyLinkedList#0" />
+            <element signature="method#clear#0;class#MyLinkedList#0" />
+            <element signature="method#contains#0;class#MyLinkedList#0" />
+            <element signature="method#isEmpty#0;class#MyLinkedList#0" />
+            <element signature="method#remove#0;class#MyLinkedList#0" />
+            <element signature="method#toArray#0;class#MyLinkedList#0" />
+            <element signature="method#add#1;class#MyLinkedList#0" />
+            <element signature="method#get#0;class#MyLinkedList#0" />
+            <element signature="method#remove#1;class#MyLinkedList#0" />
+            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="e#5392#5393#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="272">
+          <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyDLNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="272">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
           <folding>
             <element signature="e#329#330#0" expanded="true" />
@@ -627,9 +667,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="459">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
           <folding>
             <element signature="e#583#584#0" expanded="true" />
@@ -638,49 +685,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="187">
+          <caret line="312" column="34" selection-start-line="312" selection-start-column="34" selection-end-line="312" selection-end-column="34" />
           <folding>
-            <element signature="method#get#0;class#MyArrayList#0" />
+            <element signature="method#add#0;class#MyArrayList#0" />
             <element signature="method#indexOf#0;class#MyArrayList#0" />
+            <element signature="method#remove#0;class#MyArrayList#0" />
             <element signature="method#set#0;class#MyArrayList#0" />
-            <element signature="method#add#1;class#MyArrayList#0" />
+            <element signature="method#subList#0;class#MyArrayList#0" />
             <element signature="method#clear#0;class#MyArrayList#0" />
             <element signature="method#contains#0;class#MyArrayList#0" />
             <element signature="method#isEmpty#0;class#MyArrayList#0" />
+            <element signature="e#5455#5456#0" expanded="true" />
+            <element signature="e#5482#5483#0" expanded="true" />
             <element signature="method#toArray#0;class#MyArrayList#0" />
             <element signature="method#iterator#0;class#MyArrayList#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/unive/dais/po/myCollection/MyLinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="226" column="23" selection-start-line="226" selection-start-column="23" selection-end-line="226" selection-end-column="23" />
-          <folding>
-            <element signature="method#MyLinkedList#0;class#MyLinkedList#0" />
-            <element signature="method#add#0;class#MyLinkedList#0" />
-            <element signature="method#clear#0;class#MyLinkedList#0" />
-            <element signature="method#contains#0;class#MyLinkedList#0" />
-            <element signature="method#isEmpty#0;class#MyLinkedList#0" />
-            <element signature="method#toArray#0;class#MyLinkedList#0" />
-            <element signature="method#add#1;class#MyLinkedList#0" />
-            <element signature="method#get#0;class#MyLinkedList#0" />
-            <element signature="method#remove#1;class#MyLinkedList#0" />
-            <element signature="e#5211#5212#0" expanded="true" />
-            <element signature="e#5235#5236#0" expanded="true" />
-            <element signature="e#4897#4898#0" expanded="true" />
-            <element signature="e#4924#4925#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -24,6 +24,12 @@ public interface MyList<E> extends MyCollection<E>{
      */
     int indexOf(Object o);
 
+    /**
+     *
+     * @param o
+     * @return
+     */
+    int lastIndexOf(Object o);
 
     /**
      * Rimuove l'elemento in posizione pos
@@ -40,6 +46,14 @@ public interface MyList<E> extends MyCollection<E>{
      */
     E set(int position, E element) throws NotFoundException;
 
+
+    /**
+     *
+     * @param from
+     * @param to
+     * @return
+     */
+    MyList<E> subList(int from, int to) throws NotFoundException;
 
 
 }

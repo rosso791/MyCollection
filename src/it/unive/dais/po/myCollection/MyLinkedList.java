@@ -149,6 +149,19 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
     }
 
     @Override
+    public int lastIndexOf(Object o) {
+        int pos = -1;
+        MyDLNode<E> app = head;
+        for (int i =0;i<size();i++){
+            if(o.equals(app.getInfo())){
+                pos = i;
+            }
+            app= app.getNext();
+        }
+        return pos;
+    }
+
+    @Override
     public boolean remove(Object o) {
         MyDLNode<E> app = head;
         for(int i = 0; i<size();i++){
@@ -171,6 +184,11 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
 
     @Override
     public E set(int position, E element) {
+        return null;
+    }
+
+    @Override
+    public MyList<E> subList(int from, int to) throws NotFoundException {
         return null;
     }
 
@@ -240,8 +258,28 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
      */
 
     @Override
-    public MyIterator<E> iterator() {
-        return null;
+    public MyIterator iterator() {
+        return new LinkedIterator();
+    }
+
+
+    private class LinkedIterator implements MyIterator<E>{
+        private int pos;
+        @Override
+        public E next() {
+            try{
+                return get(pos++);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+                throw new RuntimeException("iterator.next failed");
+            }
+        }
+
+        @Override
+        public boolean hasNext() {
+            if ((pos<size())) return true;
+            else return false;
+        }
     }
 
 

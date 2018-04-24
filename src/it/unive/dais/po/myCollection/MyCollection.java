@@ -44,7 +44,7 @@ public interface MyCollection<E> extends MyIterable<E>  {
 
     /**
      * Ritorna un array contenente tutti gli elementi della collezione
-     * @return un arrauy contentente tutti gli elementi della collezione
+     * @return un array contentente tutti gli elementi della collezione
      */
     Object[] toArray();
 }

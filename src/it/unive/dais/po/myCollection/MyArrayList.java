@@ -17,6 +17,34 @@ public class MyArrayList<E> implements MyList<E>{
 
 
     /*
+         boolean add = false;
+        MyNode<E> nuovo = new MyNode<>(element,null);
+        if (head == null){
+            head = nuovo;
+        }
+        else{
+            MyNode<E> h = head;
+            while(h.getNext() != null){
+                h = h.getNext();
+            }
+            h.setNext(nuovo);
+            add = true;
+        }
+        size++;
+        return add;
+     */
+
+    public MyArrayList(int capacity){
+
+        while(capacity>0){
+            add(null);
+            capacity--;
+        }
+
+    }
+
+
+    /*
      *IMPLEMENTAZIONE METODI MYLIST
      */
 
@@ -58,6 +86,19 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
     @Override
+    public int lastIndexOf(Object o) {
+        int pos = -1;
+        MyNode<E> app = head;
+        for (int i =0;i<size();i++){
+            if(o.equals(app.getInfo())){
+                pos = i;
+            }
+            app= app.getNext();
+        }
+        return pos;
+    }
+
+    @Override
     public int indexOf(Object o) {
         int conta = 0;
         MyNode<E> app = head;
@@ -70,7 +111,6 @@ public class MyArrayList<E> implements MyList<E>{
         }
         return -1;
     }
-
 
 
     @Override
@@ -112,6 +152,31 @@ public class MyArrayList<E> implements MyList<E>{
             app.setInfo(element);
         }
         return ret;
+    }
+
+    @Override
+    public MyList<E> subList(int from, int to) throws NotFoundException {
+        if (from < 0 || from >= size()){
+            throw new NotFoundException("MyList.subList from value" + from +  "not valid");
+        }
+        if(to<0 || to >= size()){
+            throw new NotFoundException("MyList.subList to value" + to +  "not valid");
+        }
+        if (from> to){
+            throw new NotFoundException("MyList.subList from value major of" + to +  "value");
+        }
+        MyList<E> res = new MyArrayList<>();
+        MyNode<E> app = head;
+        while(from >0){
+            app = app.getNext();
+            from--;
+        }
+        while(to>1){
+            res.add(app.getInfo());
+            app = app.getNext();
+            to--;
+        }
+        return res;
     }
 
 
@@ -222,5 +287,32 @@ public class MyArrayList<E> implements MyList<E>{
 
 
         };
+    }
+
+
+
+    /*
+     * IMPLEMENTAZIONE METODI ARRAYLIST
+     */
+
+    /**
+     *
+     * @param minCapacity
+     */
+    public void ensureCapacity(int minCapacity){
+        for (int i = 0; i<minCapacity;i++){
+            add(null);
+        }
+    }
+
+    public void removeRange (int fromIndex, int toIndex){
+        MyNode<E> app = head;
+        for(int i = 0; i<fromIndex-1; i++){
+            app = app.getNext();
+        }
+        for(int i = fromIndex; i<=toIndex;i++){
+            app.setNext(app.getNext().getNext());
+            size--;
+        }
     }
 }
