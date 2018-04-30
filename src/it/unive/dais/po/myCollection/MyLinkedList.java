@@ -3,7 +3,7 @@ package it.unive.dais.po.myCollection;
 
 import java.util.NoSuchElementException;
 
-public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
+public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
     private  MyDLNode<E> head;
     private int size;
@@ -183,13 +183,42 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
     }
 
     @Override
-    public E set(int position, E element) {
-        return null;
+    public E set(int position, E element) throws NotFoundException {
+        if (position < 0 || position >= size())
+            throw new NotFoundException("MyNodeList.getAt(): cannot get element at position " + position);
+        MyDLNode<E> app = head;
+        E res;
+        while(position > 0){
+            app = app.getNext();
+        }
+        res = app.getInfo();
+        app.setInfo(element);
+        return res;
     }
 
     @Override
     public MyList<E> subList(int from, int to) throws NotFoundException {
-        return null;
+        if (from < 0 || from >= size()){
+            throw new NotFoundException("MyList.subList from value" + from +  "not valid");
+        }
+        if(to<0 || to >= size()){
+            throw new NotFoundException("MyList.subList to value" + to +  "not valid");
+        }
+        if (from> to){
+            throw new NotFoundException("MyList.subList from value major of" + to +  "value");
+        }
+        MyList<E> res = new MyLinkedList<>();
+        MyDLNode<E> app = head;
+        while(from >0){
+            app = app.getNext();
+            from--;
+        }
+        while(to>1){
+            res.add(app.getInfo());
+            app = app.getNext();
+            to--;
+        }
+        return res;
     }
 
      /*
@@ -283,4 +312,108 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E>{
     }
 
 
+
+    /*
+
+        IMPLEMENTAZIONE METODI MYDEQUE
+
+
+     */
+
+    @Override
+    public void addLast(E element) {
+        if (size() == 0){
+            add(element);
+        }
+        else{
+            MyDLNode<E> app = head;
+            while(app.getNext() != null){
+                app = app.getNext();
+            }
+            add(element);
+        }
+
+    }
+
+    @Override
+    public void addFirst(E element)  {
+        try {
+            add(0,element);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override //posso toglierli
+    public boolean offerFirst(E element)  {
+        addFirst(element);
+        return true;
+    }
+
+    @Override //posso toglierli
+    public boolean offerLast(E element) {
+        addLast(element);
+        return true;
+    }
+
+    @Override
+    public E removeFirst() throws NoSuchElementException{
+        if (size() == 0){
+            throw new NoSuchElementException("MyLinkedList.removeFirst la lista è vuota");
+        }
+        else{
+            E res = head.getInfo();
+            try {
+                remove(0);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+            return res;
+        }
+    }
+
+    @Override
+    public E removeLast() {
+        return null;
+    }
+
+    @Override
+    public E pollFirst() {
+        return null;
+    }
+
+    @Override
+    public E pollLast() {
+        return null;
+    }
+
+    @Override
+    public E getFirst() {
+        return null;
+    }
+
+    @Override
+    public E getLast() {
+        return null;
+    }
+
+    @Override
+    public E peekFirst() {
+        return null;
+    }
+
+    @Override
+    public E peekLast() {
+        return null;
+    }
+
+    @Override
+    public void push(E element) {
+
+    }
+
+    @Override
+    public E pop() {
+        return null;
+    }
 }

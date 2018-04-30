@@ -4,7 +4,7 @@ package it.unive.dais.po.myCollection;
 public class MyArrayList<E> implements MyList<E>{
 
     private MyNode<E> head;
-    int size;
+    private int size;
 
     /*
      * COSTRUTTORI
@@ -16,31 +16,11 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
 
-    /*
-         boolean add = false;
-        MyNode<E> nuovo = new MyNode<>(element,null);
-        if (head == null){
-            head = nuovo;
-        }
-        else{
-            MyNode<E> h = head;
-            while(h.getNext() != null){
-                h = h.getNext();
-            }
-            h.setNext(nuovo);
-            add = true;
-        }
-        size++;
-        return add;
-     */
-
     public MyArrayList(int capacity){
-
         while(capacity>0){
             add(null);
             capacity--;
         }
-
     }
 
 
@@ -55,7 +35,7 @@ public class MyArrayList<E> implements MyList<E>{
             throw new NotFoundException("MyNodeList.insertAt(): cannot insert at position " + position);
         }
         if (position==0){
-            head = new MyNode<E>(element, head);
+            head = new MyNode<>(element, head);
         }
         else{
             MyNode<E> app = head;
@@ -63,7 +43,7 @@ public class MyArrayList<E> implements MyList<E>{
                 position--;
                 app = app.getNext();
             }
-            app.setNext(new MyNode<E>(element, app.getNext()));
+            app.setNext(new MyNode<>(element, app.getNext()));
         }
         size++;
     }
@@ -103,7 +83,7 @@ public class MyArrayList<E> implements MyList<E>{
         int conta = 0;
         MyNode<E> app = head;
         while(app.getNext() != null){
-            if(o.equals(app.getInfo()) == true){
+            if(o.equals(app.getInfo())){
                 return conta;
             }
             app = app.getNext();
@@ -215,7 +195,7 @@ public class MyArrayList<E> implements MyList<E>{
     public boolean contains(Object o) {
         MyNode<E> app = head;
         while(app.getNext() != null){
-            if(o.equals(app.getInfo())== true){
+            if(o.equals(app.getInfo())){
                 return true;
             }
             app = app.getNext();
@@ -262,7 +242,7 @@ public class MyArrayList<E> implements MyList<E>{
      *IMPLEMENTAZIONE METODI MYITERABLE
      */
     public MyIterator<E> iterator(){
-        return new MyIterator<E>(){
+        return new MyIterator<>(){
             private int pos = 0;
 
             @Override
@@ -296,7 +276,7 @@ public class MyArrayList<E> implements MyList<E>{
      */
 
     /**
-     *
+     * Aumenta la dimensione dell'arraylist della dimensione minCapacity
      * @param minCapacity
      */
     public void ensureCapacity(int minCapacity){
@@ -305,7 +285,20 @@ public class MyArrayList<E> implements MyList<E>{
         }
     }
 
-    public void removeRange (int fromIndex, int toIndex){
+
+    /**
+     * Rimuove dalla lista gli elementi da fromIndex a toIndex
+     * @param fromIndex elemento da cui partire a eliminare
+     * @param toIndex elemento fino a cui eliminare
+     * @throws NotFoundException controllo che fromIndex e toIndex siano all'interno della dimensione dell'arrayList
+     */
+    public void removeRange (int fromIndex, int toIndex) throws  NotFoundException{
+        if (fromIndex < 0 || fromIndex >= size() ){
+            throw new NotFoundException("MyNodeList.removeRange(): cannot get element at position " +fromIndex);
+        }
+        if (toIndex < 0 || toIndex >= size() || toIndex<fromIndex){
+            throw new NotFoundException("MyNodeList.removeRange(): cannot get element at position " +toIndex);
+        }
         MyNode<E> app = head;
         for(int i = 0; i<fromIndex-1; i++){
             app = app.getNext();

@@ -4,19 +4,13 @@ package it.unive.dais.po.myCollection;
 public class Main {
 
     public static void main(String[] args) throws NotFoundException {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        for (int i = 0;i <10;i++){
-            list.add(i,i);
-        }
-        print(list);
-        list.removeRange(3,6);
-        print(list);
-
-
-
-
-
-
+       MyDeque<Integer> deque = new MyLinkedList<>();
+       for(int i = 0 ;i<10; i++){
+           deque.addLast(i);
+       }
+       for (int i = 0; i<10; i++){
+           System.out.println(((MyLinkedList<Integer>) deque).get(i));
+       }
     }
 
 
