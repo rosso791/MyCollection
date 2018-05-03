@@ -10,6 +10,13 @@ public interface MyCollection<E> extends MyIterable<E>  {
     boolean add(E elem);
 
     /**
+     *
+     * @param c
+     * @return
+     */
+    boolean add_All (MyCollection<? extends  E> c);
+
+    /**
      * Elimina tutti gli elementi dalla collezione
      */
     void clear();
@@ -47,4 +54,8 @@ public interface MyCollection<E> extends MyIterable<E>  {
      * @return un array contentente tutti gli elementi della collezione
      */
     Object[] toArray();
+
+    //<T> T[] toArray();
+
+
 }

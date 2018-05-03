@@ -186,6 +186,28 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
     @Override
+    public boolean add_All(MyCollection<? extends E> c) {
+        /*
+            ? extends E, dichiaro una MyCollection il cui tipo può essere un tipo arbitrario che deve essere combatibile con E.
+            Più correttamente ho utilizzato un segnaposto vincolato in quando E deve essere il vincolo superiore sul tipo che ci si aspetta,
+            qualunque sia il tipo ottenuto deve essere almeno un E. Più precisamente per esempio:
+            Collection<Number> a = new ArrayList<>();
+            Collection<Integer>  b = new ArrayList<>();
+            a.addAll(b);
+            Number è quindi il vincolo superiore per il tipo che ci si aspetta.
+         */
+
+        MyIterator<? extends E> it = c.iterator();
+        while(it.hasNext()){
+            add(it.next());
+        }
+        return true;
+    }
+
+
+
+
+    @Override
     public void clear() {
         head = null;
         size = 0;

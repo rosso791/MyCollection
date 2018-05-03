@@ -40,6 +40,11 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
+    public boolean add_All(MyCollection<? extends E> c) {
+        return false;
+    }
+
+    @Override
     public void clear() {
         head = null;
         size  = 0;
@@ -336,16 +341,12 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public void addFirst(E element)  {
-        try {
-            add(0,element);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
+    public void addFirst(E element) throws NotFoundException {
+        add(0,element);
     }
 
     @Override //posso toglierli
-    public boolean offerFirst(E element)  {
+    public boolean offerFirst(E element) throws NotFoundException {
         addFirst(element);
         return true;
     }
@@ -373,8 +374,15 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public E removeLast() {
-        return null;
+    public E removeLast() throws NotFoundException {
+        if (size() == 0){
+            throw new NotFoundException("MyLinkedList.removelast size is 0");
+        }
+        else{
+            E res = get(size()-1);
+            remove(size()-1);
+            return res;
+        }
     }
 
     @Override
@@ -384,27 +392,85 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
     @Override
     public E pollLast() {
-        return null;
+        if (size == 0){
+            return null;
+        }
+        else{
+            MyDLNode<E> app = head;
+            E res;
+            while(app.getNext() != null){
+                app = app.getNext();
+            }
+            res = app.getInfo();
+            app = app.getPrev();
+            app.setNext(null);
+            size--;
+            return res;
+        }
     }
 
     @Override
-    public E getFirst() {
-        return null;
+    public E getFirst() throws NotFoundException {
+        if (size() == 0){
+            throw new  NotFoundException("MyLinkedList.getFirst  length is 0");
+        }
+        else{
+            return get(0);
+        }
     }
 
     @Override
-    public E getLast() {
-        return null;
+    public E getLast() throws NotFoundException {
+        if (size() == 0){
+            throw new  NotFoundException("MyLinkedList.getLast  length is 0");
+        }
+        else{
+            return get(size());
+        }
     }
 
     @Override
     public E peekFirst() {
-        return null;
+        if (size()  == 0){
+            return null;
+        }
+        else{
+            return head.getInfo();
+        }
     }
 
     @Override
     public E peekLast() {
-        return null;
+        if (size()  == 0){
+            return null;
+        }
+        else{
+            MyDLNode<E> app = head;
+            while(app.getNext() != null){
+                app = app.getNext();
+            }
+            return app.getInfo();
+        }
+    }
+
+    @Override
+    public boolean removeFirstOccurence(Object o) throws NotFoundException {
+        if(size() == 0) {
+            throw new NotFoundException("MyLinkedList.removeFirstOccurence  size = 0");
+        }
+        else{
+            MyDLNode<E> app = head;
+            while(app.getNext() != null ){
+                if(o.equals(app.getInfo())){
+                    app = app.getPrev();
+                    app.setNext(app.getNext().getNext());
+                    size--;
+                    return true;
+                }
+                app = app.getNext();
+            }
+            return false;
+        }
     }
 
     @Override
@@ -412,8 +478,14 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
     }
 
-    @Override
-    public E pop() {
-        return null;
+    @Override  //Perchè se chiamo solo returnFirst non mi da errore manca eccezzione?
+    public E pop() throws NotFoundException {
+        if (size() == 0){
+            throw  new NotFoundException("MyList.pop size = 0");
+        }
+        else{
+            return removeFirst();
+        }
+
     }
 }

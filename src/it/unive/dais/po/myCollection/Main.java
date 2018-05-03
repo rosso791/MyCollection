@@ -1,16 +1,40 @@
 package it.unive.dais.po.myCollection;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class Main {
 
     public static void main(String[] args) throws NotFoundException {
-       MyDeque<Integer> deque = new MyLinkedList<>();
-       for(int i = 0 ;i<10; i++){
+        /*
+        MyDeque<Integer> deque = new MyLinkedList<>();
+        for(int i =  0 ;i<4; i++){
            deque.addLast(i);
-       }
-       for (int i = 0; i<10; i++){
-           System.out.println(((MyLinkedList<Integer>) deque).get(i));
-       }
+        }
+        for (int i = 0; i<deque.size(); i++){
+           System.out.print(((MyLinkedList<Integer>) deque).get(i)+" ") ;
+        }
+        System.out.println(deque.removeFirstOccurence(2));
+
+        System.out.println(deque.peekLast());
+        for (int i = 0; i<deque.size(); i++){
+            System.out.print(((MyLinkedList<Integer>) deque).get(i)+" ");
+        }
+        */
+        MyCollection<Integer> a = new MyArrayList<>();
+        for (int i = 0; i<10;i++){
+            a.add(i);
+        }
+        MyCollection<Integer> b = new MyArrayList<>();
+        for (int i = 10; i<20;i++){
+            a.add(i);
+        }
+        a.add_All(b);
+        MyIterator<Integer> c = a.iterator();
+        while(c.hasNext()){
+            System.out.println(c.next());
+        }
     }
 
 

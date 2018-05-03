@@ -12,14 +12,14 @@ public interface MyDeque<E> extends  MyQueue<E> {
      *
      * @param element
      */
-    void addFirst(E element) ;
+    void addFirst(E element) throws NotFoundException;
 
     /**
      *
      * @param element
      * @return
      */
-    boolean offerFirst(E element) ;  //si può eliminare
+    boolean offerFirst(E element) throws NotFoundException;  //si può eliminare
 
     /**
      *
@@ -43,7 +43,7 @@ public interface MyDeque<E> extends  MyQueue<E> {
      *
      * @return
      */
-    E removeLast();
+    E removeLast() throws NotFoundException;
 
     /**
      *
@@ -61,13 +61,13 @@ public interface MyDeque<E> extends  MyQueue<E> {
      *
      * @return
      */
-    E getFirst();
+    E getFirst() throws NotFoundException;
 
     /**
      *
      * @return
      */
-    E getLast();
+    E getLast() throws NotFoundException;
 
     /**
      *
@@ -81,7 +81,7 @@ public interface MyDeque<E> extends  MyQueue<E> {
      */
     E peekLast();
 
-    //boolean removeFirstOccurence(Object o);
+    boolean removeFirstOccurence(Object o) throws NotFoundException;
 
     //boolean removeLastOccurence(Object o);
 
@@ -95,7 +95,7 @@ public interface MyDeque<E> extends  MyQueue<E> {
      *
      * @return
      */
-    E pop();
+    E pop() throws NotFoundException;
 
 
 
