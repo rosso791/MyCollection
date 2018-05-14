@@ -7,4 +7,5 @@ public interface MyIterable<E>  {
      * @return restituisce un iteratore che permette di esaminare in sequenza tutti gli elementi della collezione corrente
      */
     MyIterator<E> iterator();
+
 }

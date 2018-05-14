@@ -10,11 +10,11 @@ public interface MyCollection<E> extends MyIterable<E>  {
     boolean add(E elem);
 
     /**
+     * Aggiunge al termine di una collection la collection c passata come paramentro
+     * @param c collection da aggiungere
      *
-     * @param c
-     * @return
      */
-    boolean add_All (MyCollection<? extends  E> c);
+    void addAll(MyCollection<? extends  E> c);
 
     /**
      * Elimina tutti gli elementi dalla collezione
@@ -38,7 +38,6 @@ public interface MyCollection<E> extends MyIterable<E>  {
      * Rimuove dalla collezione l'elemento o.
      * @param o elemento da rimuovere
      * @return true se l'elemento è stato tolto, false se l'elemento non esiste
-     * @throws NotFoundException
      */
     boolean remove(Object o);
 

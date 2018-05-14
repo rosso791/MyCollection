@@ -2,11 +2,12 @@ package it.unive.dais.po.myCollection;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
 
-    public static void main(String[] args) throws NotFoundException {
+    public static void main(String[] args) throws NotFoundException, GenericException {
         /*
         MyDeque<Integer> deque = new MyLinkedList<>();
         for(int i =  0 ;i<4; i++){
@@ -22,19 +23,40 @@ public class Main {
             System.out.print(((MyLinkedList<Integer>) deque).get(i)+" ");
         }
         */
-        MyCollection<Integer> a = new MyArrayList<>();
+        /*MyCollection<Integer> a = new ListNew<>();
         for (int i = 0; i<10;i++){
             a.add(i);
         }
-        MyCollection<Integer> b = new MyArrayList<>();
+        MyCollection<Integer> b = new ListNew<>();
         for (int i = 10; i<20;i++){
             a.add(i);
         }
-        a.add_All(b);
+        a.addAll(b);
         MyIterator<Integer> c = a.iterator();
         while(c.hasNext()){
-            System.out.println(c.next());
+            System.out.print(c.next());
         }
+        System.out.println("*****");
+        MyDeque<Integer> deq = new MyLinkedList<>();
+        for (int i  =0 ; i<10; i++){
+            deq.push(i);
+        }
+        MyIterator<Integer> d = deq.iterator();
+        while(d.hasNext()){
+            System.out.print(d.next());
+        }*/
+
+        MyLinkedList<Integer> coll = new MyLinkedList<>();
+
+        MyListIterator<Integer> it = coll.listIterator();
+        for (int i = 0; i<10;i++){
+            it.add(i,i);
+        }
+        while(it.hasNext()){
+            System.out.println(it.next() + " ");
+        }
+
+
     }
 
 

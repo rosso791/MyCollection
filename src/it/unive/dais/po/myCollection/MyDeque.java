@@ -3,97 +3,89 @@ package it.unive.dais.po.myCollection;
 public interface MyDeque<E> extends  MyQueue<E> {
 
     /**
-     *
-     * @param element
+     * Inserisce l'elemento al termine della MyDeque
+     * @param element elemento da aggiungere
      */
     void addLast(E element);
 
     /**
-     *
-     * @param element
+     * Inserisce l'elemento all'inizio della MyDeque
+     * @param element elemento da aggiugnere
      */
-    void addFirst(E element) throws NotFoundException;
+    void addFirst(E element) ;
+
 
     /**
-     *
-     * @param element
-     * @return
-     */
-    boolean offerFirst(E element) throws NotFoundException;  //si può eliminare
-
-    /**
-     *
-     * @param element
-     * @return
-     */
-    boolean offerLast (E element); //si può eliminare
-
-    /**
-     *
-     * @return
-     */
-
-    /**
-     *
-     * @return
+     * Rimuove il primo elemento dalla MyDeque
+     * @return ritorna l'elemento che è stato rimosso, se è vuota solleva un'eccezione
      */
     E removeFirst();
 
     /**
-     *
-     * @return
+     * Rimuove l'elemento in fondo alla MyDeque
+     * @return ritorna l'ultimo elemento, quello che è stato rimosso, se è vuota solleva un'eccezione
+     * @throws  NotFoundException solleva un'eccezione se la lista è già vuota
      */
     E removeLast() throws NotFoundException;
 
     /**
-     *
-     * @return
+     * Restituisce e rimuove il primo elemento della MyDeque
+     * @return ritorna il primo elemento della MyDeque, se la lista è vuota allora ritorna null
      */
     E pollFirst();
 
     /**
-     *
-     * @return
+     * Restituisce e rimuove l'ultimo elemento della MyDeque
+     * @return ritorna l'ultimo elemento della MyDeque, se la lista è vuota ritorna null
      */
     E pollLast();
 
     /**
-     *
-     * @return
+     * Restituisce il primo elemento della MyDeque, ma non lo rimuove
+     * @return il primo elemento della MyDeque, se è vuota solleva un'eccezione
+     * @throws NotFoundException  solleva un'eccezione se la lista è vuota
      */
     E getFirst() throws NotFoundException;
 
     /**
-     *
-     * @return
+     * Restituisce l'ultimo elemento della MyDeque, ma non lo rimuove
+     * @return restiuisce l'ultimo elemento della MyDeque, se è vuota solleva un'eccezione
+     * @throws NotFoundException solleva un'eccezione se la lista è vuota
      */
     E getLast() throws NotFoundException;
 
     /**
-     *
-     * @return
+     * Restituisce il primo elemento della MyDeque, ma non lo rimuove
+     * @return il primo elemento della MyDeque, se è vuota restituisce null
      */
     E peekFirst();
 
     /**
-     *
-     * @return
+     * Restituisce l'ultimo elemento della MyDeque, ma non lo rimuove
+     * @return restiuisce l'ultimo elemento della MyDeque, se è vuota restituisce null
      */
     E peekLast();
 
-    boolean removeFirstOccurence(Object o) throws NotFoundException;
+    /**
+     * Rimuove la prima occorrenza dell'elemento o
+     * @param o elemento da cercare e rimuovere
+     * @return true se lo ha trovato e lo ha rimosso, false se l'elemento non è presente
+     * @throws NotFoundException se la lista è vuota
+     */
+    boolean removeFirstOccurence(Object o) throws NotFoundException; //possibile modifica restituisce false se la lista è vuota
 
     //boolean removeLastOccurence(Object o);
 
     /**
-     *
-     * @param element
+     * Inserisce in testa alla MyDeque l'elemento element. Funziona come uno stack, quindi in modalità FIFO
+     * @param element elemento da inserire nello stack
      */
     void push(E element);
 
     /**
-     *
-     * @return
+     * Ritorna e rimuove la testa della MyDeque. Funziona come uno stack, quindi in modalità FIFO
+     * @return l'elemento rimosso
+     * @throws NotFoundException solleva un'eccezione se lo stack è vuoto
      */
     E pop() throws NotFoundException;
 

@@ -1,7 +1,7 @@
 package it.unive.dais.po.myCollection;
 
 
-public class MyArrayList<E> implements MyList<E>{
+public class ListNew<E> implements MyList<E>{
 
     private MyNode<E> head;
     private int size;
@@ -10,13 +10,13 @@ public class MyArrayList<E> implements MyList<E>{
      * COSTRUTTORI
      */
 
-    public MyArrayList(){
+    public ListNew(){
         head = null;
         size  = 0;
     }
 
 
-    public MyArrayList(int capacity){
+    public ListNew(int capacity){
         while(capacity>0){
             add(null);
             capacity--;
@@ -145,7 +145,7 @@ public class MyArrayList<E> implements MyList<E>{
         if (from> to){
             throw new NotFoundException("MyList.subList from value major of" + to +  "value");
         }
-        MyList<E> res = new MyArrayList<>();
+        MyList<E> res = new ListNew<>();
         MyNode<E> app = head;
         while(from >0){
             app = app.getNext();
@@ -186,7 +186,7 @@ public class MyArrayList<E> implements MyList<E>{
     }
 
     @Override
-    public boolean add_All(MyCollection<? extends E> c) {
+    public void addAll(MyCollection<? extends E> c) {
         /*
             ? extends E, dichiaro una MyCollection il cui tipo può essere un tipo arbitrario che deve essere combatibile con E.
             Più correttamente ho utilizzato un segnaposto vincolato in quando E deve essere il vincolo superiore sul tipo che ci si aspetta,
@@ -201,10 +201,8 @@ public class MyArrayList<E> implements MyList<E>{
         while(it.hasNext()){
             add(it.next());
         }
-        return true;
+
     }
-
-
 
 
     @Override
@@ -227,8 +225,7 @@ public class MyArrayList<E> implements MyList<E>{
 
     @Override
     public boolean isEmpty() {
-        if (size() == 0) return  true;
-        else return false;
+        return size() == 0;
     }
 
     @Override
@@ -260,6 +257,7 @@ public class MyArrayList<E> implements MyList<E>{
         return res;
     }
 
+
     /*
      *IMPLEMENTAZIONE METODI MYITERABLE
      */
@@ -269,11 +267,7 @@ public class MyArrayList<E> implements MyList<E>{
 
             @Override
             public boolean hasNext() {
-                if(pos < MyArrayList.this.size()){
-                    return true;
-                }
-                else
-                    return false;
+                return pos < ListNew.this.size();
             }
 
             @Override
@@ -289,45 +283,5 @@ public class MyArrayList<E> implements MyList<E>{
 
 
         };
-    }
-
-
-
-    /*
-     * IMPLEMENTAZIONE METODI ARRAYLIST
-     */
-
-    /**
-     * Aumenta la dimensione dell'arraylist della dimensione minCapacity
-     * @param minCapacity
-     */
-    public void ensureCapacity(int minCapacity){
-        for (int i = 0; i<minCapacity;i++){
-            add(null);
-        }
-    }
-
-
-    /**
-     * Rimuove dalla lista gli elementi da fromIndex a toIndex
-     * @param fromIndex elemento da cui partire a eliminare
-     * @param toIndex elemento fino a cui eliminare
-     * @throws NotFoundException controllo che fromIndex e toIndex siano all'interno della dimensione dell'arrayList
-     */
-    public void removeRange (int fromIndex, int toIndex) throws  NotFoundException{
-        if (fromIndex < 0 || fromIndex >= size() ){
-            throw new NotFoundException("MyNodeList.removeRange(): cannot get element at position " +fromIndex);
-        }
-        if (toIndex < 0 || toIndex >= size() || toIndex<fromIndex){
-            throw new NotFoundException("MyNodeList.removeRange(): cannot get element at position " +toIndex);
-        }
-        MyNode<E> app = head;
-        for(int i = 0; i<fromIndex-1; i++){
-            app = app.getNext();
-        }
-        for(int i = fromIndex; i<=toIndex;i++){
-            app.setNext(app.getNext().getNext());
-            size--;
-        }
     }
 }

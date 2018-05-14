@@ -5,15 +5,17 @@ public interface MyList<E> extends MyCollection<E>{
 
     /**
      * Aggiunge l'elemento elem in posizione pos
-     * @param position
-     * @param elem
+     * @param position posizione in cui aggiugnere l'elemento
+     * @param elem da aggiungere alla lista
      */
     void add (int position, E elem) throws NotFoundException;
 
     /**
      * Ritorna l'elemento in posizione pos
-     * @param position
+     * @param position posizione dell'elemento da ritornare
      * @return l'elemento in posizione pos
+     * @throws NotFoundException eccezione in caso la posizione non sia valida, quindi se minore di 0 o maggiore della
+     * dimensione
      */
     E get(int position) throws NotFoundException;
 
@@ -25,15 +27,15 @@ public interface MyList<E> extends MyCollection<E>{
     int indexOf(Object o);
 
     /**
-     *
-     * @param o
-     * @return
+     * Ritorna l'indice dell'ultimo elemento ricercato se non lo trova ritorna -1
+     * @param o elemento da cercare
+     * @return -1 se non lo trova oppure la posizione dell'ultimo elemento nella lista
      */
     int lastIndexOf(Object o);
 
     /**
      * Rimuove l'elemento in posizione pos
-     * @param position
+     * @param position positione dell'elemento da rimuovere
      *
      */
     void remove (int position) throws NotFoundException;
@@ -48,10 +50,11 @@ public interface MyList<E> extends MyCollection<E>{
 
 
     /**
-     *
-     * @param from
-     * @param to
-     * @return
+     * Restituisce una nuova lista dalla posizione from alla posizione to
+     * @param from posizione da cui partire
+     * @param to posizione a cui a arrivare
+     * @return ritorna la lista dalla posizione froma alla posizione to
+     * @throws NotFoundException solleva un'eccezione se le posizioni non sono corrette o fuori da limiti della lista
      */
     MyList<E> subList(int from, int to) throws NotFoundException;
 
