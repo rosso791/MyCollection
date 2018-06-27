@@ -46,7 +46,7 @@ public class MyNode<T> {
 
     /**
      * Restituisce il campo info del nodo.
-     * @param info
+     * @param info inserisce nel campo info del nodo il parametro info
      */
     public void setInfo(T info){
         this.info = info;

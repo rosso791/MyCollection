@@ -3,25 +3,23 @@ package it.unive.dais.po.myCollection;
 public interface MyListIterator<E> extends  MyIterator<E>{
 
 
-    void add(int position, E element) throws NotFoundException;
+    void add(E element) throws IndexNotCorrect;
 
     boolean hasPrevious();
 
     int nextIndex();
 
-    E previous() throws NotFoundException;
+    E previous() throws IndexNotCorrect;
 
     int previousIndex();
 
-    //void remove();  forse da aggiugnere bisogna valutare come farlo se chiamarlo removePrev, removeNext, o farlo come
-    // l'interfaccia reale. Se faccio con remove removePrev e removeNext è possibile creare un metodo remove con indice,
-    //precedente e successivo
+    boolean hasNextTimes(int skip);
 
-    void set (E e) throws GenericException, NotFoundException;
+    boolean hasPrevTimes(int skip);
 
-    E nextTimes(int skip) throws NotFoundException;
+    E nextTimes(int skip) throws IndexNotCorrect;
 
-    E prevTimes(int skipTimes) throws NotFoundException;
+    E prevTimes(int skipTimes) throws IndexNotCorrect;
 
 
 }

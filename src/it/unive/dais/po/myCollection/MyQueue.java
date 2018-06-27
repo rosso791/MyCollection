@@ -1,15 +1,15 @@
 package it.unive.dais.po.myCollection;
 
-import java.util.NoSuchElementException;
+
 
 public interface MyQueue<E> extends MyCollection<E> {
 
     /**
      * Restituisce ma non elimina l'elemento che si trova in testa alla coda. Se la coda è vuota solleva l'eccezione NoSuchElementException
      * @return  l'elemento in testa alla coda
-     * @throws NoSuchElementException solleva un'eccezione se la coda è vuota
+     * @throws IndexNotCorrect solleva un'eccezione se la coda è vuota
      */
-    E element() throws NoSuchElementException;
+    E element() ;
 
 
     /**
@@ -21,9 +21,9 @@ public interface MyQueue<E> extends MyCollection<E> {
     /**
      * Restituisce e elimina l'elemento che si trova in testa alla coda. Se la coda è vuota solleva NoSuchElementException
      * @return Restituisce e elimina l'elemento che si trova in testa alla coda. Se la coda è vuota solleva NoSuchElementException
-     * @throws NoSuchElementException se la coda è vuota solleva un'eccezione
+     * @throws IndexNotCorrect se la coda è vuota solleva un'eccezione
      */
-    E remove() throws NoSuchElementException;
+    E remove() ;
 
     /**
      * Restituisce ed elimina l'oggetto che si trova in testa alla coda. Se la coda è vuota restituisce null.

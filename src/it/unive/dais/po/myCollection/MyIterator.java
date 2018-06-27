@@ -12,6 +12,6 @@ public interface MyIterator<E> {
      * Restituisce l'elemento successivo e fa avanzare di un passo il cursore
      * @return restituisce l'elemento successivo
      */
-    E next();
+    E next() throws IndexNotCorrect;
 
 }

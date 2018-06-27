@@ -16,23 +16,15 @@ public class ListNew<E> implements MyList<E>{
     }
 
 
-    public ListNew(int capacity){
-        while(capacity>0){
-            add(null);
-            capacity--;
-        }
-    }
-
-
     /*
      *IMPLEMENTAZIONE METODI MYLIST
      */
 
 
     @Override
-    public void add(int position, E element) throws NotFoundException {
+    public void add(int position, E element){
         if (position < 0 || position > size()) {
-            throw new NotFoundException("MyNodeList.insertAt(): cannot insert at position " + position);
+            throw new IndexNotCorrect("MyNodeList.insertAt(): cannot insert at position " + position);
         }
         if (position==0){
             head = new MyNode<>(element, head);
@@ -51,9 +43,9 @@ public class ListNew<E> implements MyList<E>{
 
 
     @Override
-    public E get(int position) throws NotFoundException {
+    public E get(int position){
         if (position < 0 || position >= size())
-            throw new NotFoundException("MyNodeList.getAt(): cannot get element at position " + position);
+            throw new IndexNotCorrect("MyNodeList.getAt(): cannot get element at position " + position);
         if (position == 0)
             return head.getInfo();
         else {
@@ -94,9 +86,9 @@ public class ListNew<E> implements MyList<E>{
 
 
     @Override
-    public void remove(int position) throws NotFoundException {
+    public void remove(int position) throws IndexNotCorrect {
         if (position < 0 || position >= size()) {
-            throw new NotFoundException("MyNodeList.getAt(): cannot get element at position " + position);
+            throw new IndexNotCorrect("MyNodeList.getAt(): cannot get element at position " + position);
         }
         if (position == 0){
             head = head.getNext();
@@ -114,9 +106,9 @@ public class ListNew<E> implements MyList<E>{
     }
 
     @Override
-    public E set(int position, E element) throws NotFoundException {
+    public E set(int position, E element) {
         if (position < 0 || position >= size())
-            throw new NotFoundException("MyNodeList.getAt(): cannot get element at position " + position);
+            throw new IndexNotCorrect("MyNodeList.getAt(): cannot get element at position " + position);
         E ret;
         if (position == 0){
             ret = head.getInfo();
@@ -135,27 +127,26 @@ public class ListNew<E> implements MyList<E>{
     }
 
     @Override
-    public MyList<E> subList(int from, int to) throws NotFoundException {
+    public MyList<E> subList(int from, int to){
         if (from < 0 || from >= size()){
-            throw new NotFoundException("MyList.subList from value" + from +  "not valid");
+            throw new IndexNotCorrect("MyList.subList from value" + from +  "not valid");
         }
         if(to<0 || to >= size()){
-            throw new NotFoundException("MyList.subList to value" + to +  "not valid");
+            throw new IndexNotCorrect("MyList.subList to value" + to +  "not valid");
         }
         if (from> to){
-            throw new NotFoundException("MyList.subList from value major of" + to +  "value");
+            throw new IndexNotCorrect("MyList.subList from value major of" + to +  "value");
         }
         MyList<E> res = new ListNew<>();
         MyNode<E> app = head;
-        while(from >0){
+        for (int i = 0; i<from; i++){
             app = app.getNext();
-            from--;
         }
-        while(to>1){
+        for (int i = from; i<=to; i++){
             res.add(app.getInfo());
             app = app.getNext();
-            to--;
         }
+
         return res;
     }
 
@@ -272,12 +263,11 @@ public class ListNew<E> implements MyList<E>{
 
             @Override
             public E next() {
-                try{
-
+                if(hasNext()){
                     return get(pos++);
-                } catch (NotFoundException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException("iterator.next() failed");
+                }
+                else{
+                    throw  new IndexNotCorrect("MyIterator.next ha fallito");
                 }
             }
 

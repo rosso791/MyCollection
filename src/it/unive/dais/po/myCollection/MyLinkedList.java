@@ -1,8 +1,5 @@
 package it.unive.dais.po.myCollection;
 
-
-import java.util.NoSuchElementException;
-
 public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
     private  MyDLNode<E> head;
@@ -41,7 +38,10 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
     @Override
     public void addAll(MyCollection<? extends E> c) {
-
+        MyIterator<? extends E> it = c.iterator();
+        while(it.hasNext()){
+            add(it.next());
+        }
     }
 
     @Override
@@ -111,9 +111,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
 
     @Override
-    public void add (int pos, E elem ) throws NotFoundException {
+    public void add (int pos, E elem ) {
         if (pos < 0 || pos > size()){
-            throw new NotFoundException("MyLinkedList.add la posizione" + pos + " non esiste");
+            throw new IndexNotCorrect( "MyLinkedList.add la posizione" + pos + " non esiste");
         }
         if (pos==0){
             head = new MyDLNode<>(null, elem, head);
@@ -131,9 +131,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
 
     @Override
-    public E get(int position) throws NotFoundException{
+    public E get(int position){
         if (position < 0 || position >= size())
-            throw new NotFoundException("MyNodeList.getAt(): cannot get element at position " + position);
+            throw new IndexNotCorrect("MyNodeList.getAt(): cannot get element at position " + position);
         if (position == 0)
             return head.getInfo();
         else {
@@ -164,9 +164,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public void remove(int position) throws NotFoundException {
+    public void remove(int position){
         if (position <0 || position > size()){
-            throw new NotFoundException("MyLinkedList.remove la posizione" + position + " non esiste");
+            throw new IndexNotCorrect("MyLinkedList.remove la posizione" + position + " non esiste");
         }
         if(position == 0){
             head = head.getNext();
@@ -185,9 +185,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public E set(int position, E element) throws NotFoundException {
+    public E set(int position, E element) {
         if (position < 0 || position >= size())
-            throw new NotFoundException("MyNodeList.getAt(): cannot get element at position " + position);
+            throw new IndexNotCorrect("MyNodeList.getAt(): cannot get element at position " + position);
         MyDLNode<E> app = head;
         E res;
         while(position > 0){
@@ -200,15 +200,15 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public MyList<E> subList(int from, int to) throws NotFoundException {
+    public MyList<E> subList(int from, int to){
         if (from < 0 || from >= size()){
-            throw new NotFoundException("MyList.subList from value" + from +  "not valid");
+            throw new IndexNotCorrect("MyList.subList from value" + from +  "not valid");
         }
         if(to<0 || to >= size()){
-            throw new NotFoundException("MyList.subList to value" + to +  "not valid");
+            throw new IndexNotCorrect("MyList.subList to value" + to +  "not valid");
         }
         if (from> to){
-            throw new NotFoundException("MyList.subList from value major of" + to +  "value");
+            throw new IndexNotCorrect("MyList.subList from value major of" + to +  "value");
         }
         MyList<E> res = new MyLinkedList<>();
         MyDLNode<E> app = head;
@@ -231,9 +231,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
      */
 
      @Override
-     public E element() throws NoSuchElementException {
+     public E element() {
          if (size() == 0){
-             throw new NoSuchElementException("MYLinkedList.element coda vuota");
+             throw new IndexNotCorrect("MyLinkedList.element coda vuota");
          }
          else{
              return head.getInfo();
@@ -251,9 +251,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public E remove() throws NoSuchElementException {
+    public E remove()  {
         if (size() == 0){
-            throw new NoSuchElementException("MYLinkedList.element coda vuota");
+            throw new IndexNotCorrect("MYLinkedList.element coda vuota");
         }
         else{
             E res = head.getInfo();
@@ -310,11 +310,11 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
         private int pos;
         @Override
         public E next() {
-            try{
+            if (hasNext()){
                 return get(pos++);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-                throw new RuntimeException("iterato.next ha fallito, sei andato oltre l'iteratore");
+            }
+            else{
+                throw  new IndexNotCorrect("MyIterator.next ha fallito");
             }
         }
 
@@ -355,29 +355,32 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
 
     @Override
-    public E removeFirst() throws NoSuchElementException{
+    public E removeFirst(){
         if (size() == 0){
-            throw new NoSuchElementException("MyLinkedList.removeFirst la lista è vuota");
+            throw new IndexNotCorrect("MyLinkedList.removeFirst la lista è vuota");
         }
         else{
             E res = head.getInfo();
-            try {
-                remove(0);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            remove(0);
             return res;
         }
     }
 
     @Override
-    public E removeLast() throws NotFoundException {
+    public E removeLast(){
         if (size() == 0){
-            throw new NotFoundException("MyLinkedList.removelast size is 0");
+            throw new IndexNotCorrect("MyLinkedList.removelast size is 0");
         }
         else{
-            E res = get(size()-1);
-            remove(size()-1);
+            MyDLNode<E> app = head;
+            E res;
+            while(app.getNext() != null){
+                app = app.getNext();
+            }
+            res = app.getInfo();
+            app = app.getPrev();
+            app.setNext(null);
+            size--;
             return res;
         }
     }
@@ -415,9 +418,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public E getFirst() throws NotFoundException {
+    public E getFirst(){
         if (size() == 0){
-            throw new  NotFoundException("MyLinkedList.getFirst  length is 0");
+            throw new IndexNotCorrect("MyLinkedList.getFirst  length is 0");
         }
         else{
             return get(0);
@@ -425,9 +428,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public E getLast() throws NotFoundException {
+    public E getLast(){
         if (size() == 0){
-            throw new  NotFoundException("MyLinkedList.getLast  length is 0");
+            throw new IndexNotCorrect("MyLinkedList.getLast  length is 0");
         }
         else{
             return get(size());
@@ -459,9 +462,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public boolean removeFirstOccurence(Object o) throws NotFoundException {
+    public boolean removeFirstOccurrence(Object o) {
         if(size() == 0) {
-            throw new NotFoundException("MyLinkedList.removeFirstOccurence  size = 0");
+            return false;
         }
         else{
             MyDLNode<E> app = head;
@@ -493,9 +496,9 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
     }
 
     @Override
-    public E pop() throws NotFoundException {
+    public E pop(){
         if (size() == 0){
-            throw new NotFoundException("MyList.pop size = 0");
+            throw new IndexNotCorrect("MyList.pop size = 0");
         }
         else{
             return removeFirst();
@@ -513,32 +516,40 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
 
     public MyListIterator<E> listIterator(){
-        return new ListItr();
+        return new ListItr<>(this);
     }
 
-    public MyListIterator<E> listIterator(int from){
-        return  new ListItr(from);
+    public MyListIterator<E> listIterator(int from) {
+        if (from < 0 || from >= size()){
+            throw new IndexNotCorrect("MyListIterator.listIterator from non valido");
+        }
+        return  new ListItr<>(from, this);
     }
 
-    private class ListItr implements MyListIterator<E>{
+    private static class ListItr<E> implements MyListIterator<E>{
         private int pos;
-
-        public ListItr(int from){
+        private MyLinkedList<E> enclosing;
+        public ListItr(int from, MyLinkedList<E> enclosing){
             pos = from;
+            this.enclosing = enclosing;
         }
 
-        public ListItr(){
+        public ListItr(MyLinkedList<E> enclosing){
             this.pos = 0;
+            this.enclosing = enclosing;
         }
 
 
         @Override
-        public void add(int position, E element) throws NotFoundException {
-            try {
-                MyLinkedList.this.add(position, element);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+        public void add( E element){
+           try{
+               int i = pos;
+               enclosing.add(i,element);
+           }
+           catch(IndexNotCorrect e){
+               System.out.print("Indice non esistente");
+           }
+
         }
 
         @Override
@@ -548,23 +559,21 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
 
         @Override
         public int nextIndex() {
-            if (pos > MyLinkedList.this.size()){
-                return size();
+            if (pos > enclosing.size()){
+                return enclosing.size();
             }
             else{
-
                 return pos+ 1;
             }
         }
 
         @Override
-        public E previous() throws NotFoundException {
-            try{
-                return get(pos--);
+        public E previous(){
+            if (hasPrevious()){
+                return enclosing.get(pos--);
             }
-            catch (NotFoundException e){
-                e.printStackTrace();
-                throw new NotFoundException("MyListIterator.previous, non c'è precedente. Non faccio nulla");
+            else{
+                throw new IndexNotCorrect("MyListIterator.previous iteratore terminato");
             }
         }
 
@@ -579,57 +588,57 @@ public class MyLinkedList<E> implements MyList<E>, MyDeque<E>{
         }
 
         @Override
-        public void set(E elem) throws GenericException, NotFoundException {
-            /*try{
-                MyLinkedList.this.set(pos, elem);
+        public boolean hasNextTimes(int skip) {
+            return pos + skip < enclosing.size();
+        }
+
+        @Override
+        public boolean hasPrevTimes(int skip) {
+            return pos - skip >= 0;
+        }
+
+
+        @Override
+        public E nextTimes(int skip) throws IndexNotCorrect {
+            if (hasNext()){
+                E elem = enclosing.get(pos);
+                pos = pos+skip;
+                return elem;
             }
-            catch (NotFoundException e){
-                e.printStackTrace();
-                throw new GenericException("MyLinkedList.ListItr.set non dovremmo essere mai qui");
-            }*/
+            else{
+                throw new IndexNotCorrect("MyListIterator.previous iteratore terminato");
+            }
 
         }
 
-        @Override //da controllare
-        public E nextTimes(int skip) throws NotFoundException {
-            if(pos + skip > MyLinkedList.this.size()){
-                throw new NotFoundException("MyLinkedList.ListItr.nextTimes," + (skip+pos) +  "è maggiore di size" +  MyLinkedList.this.size() );
-            }
-            else if(skip < 0 ){
-                throw new NotFoundException("MyLinkedList.ListItr.nextTimes skip è negativo" );
-            }
-            else{
-                pos = pos +skip;
-                return  get(pos);
-            }
-        }
-
-        @Override //da controllare
-        public E prevTimes(int skipTimes) throws NotFoundException {
-            if(pos - skipTimes< 0){
-                throw new NotFoundException("MyLinkedList.ListItr.prevTimes," + (pos - skipTimes) +  "è minore di zero" +  MyLinkedList.this.size());
-            }
-            else if(skipTimes<0 ){
-                throw new NotFoundException("MyLinkedList.ListItr.nextTimes skip è negativo");
-            }
-            else{
+        @Override
+        public E prevTimes(int skipTimes) throws IndexNotCorrect {
+            if (hasPrevious()){
+                if (pos == enclosing.size()){
+                    pos = pos-1;
+                }
+                E elem = enclosing.get(pos);
                 pos = pos-skipTimes;
-                return  MyLinkedList.this.get(pos);
+                return elem;
+
+            }
+            else{
+                throw new IndexNotCorrect("MyListIterator.previous iteratore terminato");
             }
         }
 
         @Override
         public boolean hasNext() {
-            return pos<MyLinkedList.this.size();
+            return pos < enclosing.size();
         }
 
         @Override
-        public E next()  {
-            try{
-                return get(pos++);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-                throw new RuntimeException("MyLinkedList.ListItr.next ha fallito, sei andato oltre l'iteratore");
+        public E next() throws IndexNotCorrect {
+            if (hasNext()){
+                return enclosing.get(pos++);
+            }
+            else{
+                throw new IndexNotCorrect("MyListIterator.previous iteratore terminato");
             }
         }
 

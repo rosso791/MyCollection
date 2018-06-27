@@ -54,7 +54,6 @@ public interface MyCollection<E> extends MyIterable<E>  {
      */
     Object[] toArray();
 
-    //<T> T[] toArray();
 
 
 }

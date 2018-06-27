@@ -24,9 +24,9 @@ public interface MyDeque<E> extends  MyQueue<E> {
     /**
      * Rimuove l'elemento in fondo alla MyDeque
      * @return ritorna l'ultimo elemento, quello che è stato rimosso, se è vuota solleva un'eccezione
-     * @throws  NotFoundException solleva un'eccezione se la lista è già vuota
+     * @throws IndexNotCorrect solleva un'eccezione se la lista è già vuota
      */
-    E removeLast() throws NotFoundException;
+    E removeLast();
 
     /**
      * Restituisce e rimuove il primo elemento della MyDeque
@@ -43,16 +43,16 @@ public interface MyDeque<E> extends  MyQueue<E> {
     /**
      * Restituisce il primo elemento della MyDeque, ma non lo rimuove
      * @return il primo elemento della MyDeque, se è vuota solleva un'eccezione
-     * @throws NotFoundException  solleva un'eccezione se la lista è vuota
+     * @throws IndexNotCorrect  solleva un'eccezione se la lista è vuota
      */
-    E getFirst() throws NotFoundException;
+    E getFirst();
 
     /**
      * Restituisce l'ultimo elemento della MyDeque, ma non lo rimuove
      * @return restiuisce l'ultimo elemento della MyDeque, se è vuota solleva un'eccezione
-     * @throws NotFoundException solleva un'eccezione se la lista è vuota
+     * @throws IndexNotCorrect solleva un'eccezione se la lista è vuota
      */
-    E getLast() throws NotFoundException;
+    E getLast();
 
     /**
      * Restituisce il primo elemento della MyDeque, ma non lo rimuove
@@ -69,10 +69,10 @@ public interface MyDeque<E> extends  MyQueue<E> {
     /**
      * Rimuove la prima occorrenza dell'elemento o
      * @param o elemento da cercare e rimuovere
-     * @return true se lo ha trovato e lo ha rimosso, false se l'elemento non è presente
-     * @throws NotFoundException se la lista è vuota
+     * @return true se lo ha trovato e lo ha rimosso, false se l'elemento non è presente, quindi anche se la lista è vuota
+
      */
-    boolean removeFirstOccurence(Object o) throws NotFoundException; //possibile modifica restituisce false se la lista è vuota
+    boolean removeFirstOccurrence(Object o);
 
     //boolean removeLastOccurence(Object o);
 
@@ -85,9 +85,9 @@ public interface MyDeque<E> extends  MyQueue<E> {
     /**
      * Ritorna e rimuove la testa della MyDeque. Funziona come uno stack, quindi in modalità FIFO
      * @return l'elemento rimosso
-     * @throws NotFoundException solleva un'eccezione se lo stack è vuoto
+     * @throws IndexNotCorrect solleva un'eccezione se lo stack è vuoto
      */
-    E pop() throws NotFoundException;
+    E pop();
 
 
 
